@@ -3,21 +3,31 @@ package pl.javastart.task;
 public class CheckQuarterCalculation {
     public void checkQuarter(Point point) {
         if (point.getX() > 0 && point.getY() > 0) {
-            System.out.printf("Punkt (%d, %d) leży w ćwiartce I", point.getX(), point.getY());
+            printFunctionAboutQuarter(point.getX(), point.getY(), "I");
         } else if (point.getX() < 0 && point.getY() > 0) {
-            System.out.printf("Punkt (%d, %d) leży w ćwiartce II", point.getX(), point.getY());
+            printFunctionAboutQuarter(point.getX(), point.getY(), "II");
         } else if (point.getX() < 0 && point.getY() < 0) {
-            System.out.printf("Punkt (%d, %d) leży w ćwiartce III", point.getX(), point.getY());
+            printFunctionAboutQuarter(point.getX(), point.getY(), "III");
         } else if (point.getX() > 0 && point.getY() < 0) {
-            System.out.printf("Punkt (%d, %d) leży w ćwiartce IV", point.getX(), point.getY());
+            printFunctionAboutQuarter(point.getX(), point.getY(), "IV");
         } else if (point.getX() == 0 && point.getY() == 0) {
-            System.out.printf("Punkt (%d, %d) leży w środku układu współrzędnych", point.getX(), point.getY());
+            printFunctionAboutPointOnTheMiddleOfCoordinateSystem(point.getX(), point.getY());
         } else if (point.getX() == 0) {
-            System.out.printf("Punkt (%d, %d) leży na osi X", point.getX(), point.getY());
+            printFunctionAboutPointOnAxis(point.getX(), point.getY(), "Y");
         } else if (point.getY() == 0) {
-            System.out.printf("Punkt (%d, %d) leży na osi Y", point.getX(), point.getY());
-        } else {
-            System.out.println("Błąd, podane parametry nie pozwalają na określenie ćwiartki.");
+            printFunctionAboutPointOnAxis(point.getX(), point.getY(), "X");
         }
+    }
+
+    private void printFunctionAboutQuarter(int x, int y, String quarter) {
+        System.out.printf("Punkt (%d, %d) leży w %s ćwiartce układu współrzędnych", x, y, quarter);
+    }
+
+    private void printFunctionAboutPointOnAxis(int x, int y, String axis) {
+        System.out.printf("Punkt (%d, %d) leży na osi %s", x, y, axis);
+    }
+
+    private void printFunctionAboutPointOnTheMiddleOfCoordinateSystem(int x, int y) {
+        System.out.printf("Punkt (%d, %d) leży na środku układu współrzędnych", x, y);
     }
 }

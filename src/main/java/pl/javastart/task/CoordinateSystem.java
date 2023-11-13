@@ -3,21 +3,15 @@ package pl.javastart.task;
 import java.util.Scanner;
 
 public class CoordinateSystem {
-    private int x;
-    private int y;
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
     void run(Scanner scanner) {
         System.out.println("Podaj X");
-        this.x = scanner.nextInt();
+        int x = scanner.nextInt();
         System.out.println("Podaj Y");
-        this.y = scanner.nextInt();
+        int y = scanner.nextInt();
+
+        Point point = new Point(x, y);
+
+        CheckQuarterCalculation checkQuarterCalculation = new CheckQuarterCalculation();
+        checkQuarterCalculation.checkQuarter(point);
     }
 }
